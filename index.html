@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    
+    <section class="logInForm">
+        <div id="overlay">
+        
+            <div id="toForm">
+                <div class="logo">
+                    <img src="images/KMusic.png" alt="KMusic Logo">
+                </div>
+                <button id="logIn" onclick="openModal()" style="width:auto;">Login</button>
+            </div>
+        
+            <!-- Modal -->
+            <div id="id01" class="modal">
+                <div class="modal-content animate" id="modal-content">
+                    <div id="login-form">
+                        <div class="container">
+        
+                            <label for="login-username-email"><b>Username or Email</b></label>
+                            <input type="text" placeholder="Enter Username" id="login-username-email" required>
+        
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" id="login-password" required>
+        
+                            <button class="logInButton" type="button" onclick="login()">Login</button>
+        
+                            <button class="signUpButton" type="button" onclick="showSignUp()">Sign Up</button>
+        
+                        </div>
+                        <div class="container" style="background-color:#f1f1f1">
+        
+                            <button type="button" onclick="closeModalOnly()" class="cancelbtn">Cancel</button>
+        
+                        </div>
+                    </div>
+        
+                    <div id="sign-up-form" style="display: none;">
+                        <div class="container">
+        
+                            <label for="new-username"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" id="new-username" required>
+        
+                            <label for="new-email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" id="new-email" required>
+        
+                            <label for="new-password"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" id="new-password" required>
+        
+                            <button class="signUpButton" type="button" onclick="signUp()">Sign Up</button>
+        
+                            <button class="logInButton" type="button" onclick="showLogin()">Back to Login</button>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+        <div class="content music-player">
+
+            <div class="music-player-header">
+                <button id="logoutBtn" class="logout-button">Log Out</button>
+            </div>
+            
+            <div class="top-bar">
+                <span></span>
+                <span>Now Playing</span>
+                <span></span>
+            </div>
+            <div class="image-wrapper">
+                <div class="music-image">
+                    <img src="images/img1.jpg" alt="Music Image">
+                </div>
+            </div>
+            <div class="music-titles">
+                <p class="name"></p>
+                <p class="artist"></p>
+            </div>
+            <div class="progress-details">
+                <div class="progress-bar">
+                    <span></span>
+                </div>
+            </div>
+            <div class="time">
+                <span class="current">0:00</span>
+                <span class="final">0:00</span>
+            </div>
+            <div class="control-btn">
+                <span class="material-symbols-rounded" id="repeat">repeat</span>
+                <span class="material-symbols-rounded" id="prev">skip_previous</span>
+                <div class="play-pause">
+                    <span class="material-symbols-rounded">play_arrow</span>
+                </div>
+                <span class="material-symbols-rounded" id="next">skip_next</span>
+                <span class="material-symbols-rounded" id="shuffle">shuffle</span>
+            </div>
+            <div class="volume-bar">
+                <span class="material-symbols-rounded mute" onclick="toggleMute()" id="mute">volume_off</span>
+                <input type="range" min="0" max="1" step="0.01" value="1" id="volume-slider">
+            </div>
+        </div>
+
+        <div class="track-list">
+            <ul id="track-list-container"></ul>
+        </div>
+
+    <audio src="music/music1.mp3" class="main-song"></audio>
+
+    <script src="js/playlist.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
